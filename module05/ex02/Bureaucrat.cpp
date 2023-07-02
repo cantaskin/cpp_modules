@@ -1,5 +1,5 @@
 #include "Bureaucrat.h"
-#include "Form.h"
+#include "AForm.h"
    Bureaucrat::Bureaucrat(){
         m_name = "Can";
         m_grade = 1;
@@ -60,7 +60,7 @@
         setgrade(getgrade() + 1);
         return temp;
     }
-    void Bureaucrat::signForm(Form &obj)
+    void Bureaucrat::signForm(AForm &obj)
     {
         if(!obj.getsigned()  && obj.beSigned(*this))
         {
@@ -70,11 +70,21 @@
             std::cout << getname() << " couldn't sign " << obj.getname() << " because grade too low\n";
 
     }
+    void Bureaucrat::executeForm(AForm &form)
+    {
+        if(form.beExecuted(*this))
+        {
+            std::cout << getname() << " signed " << form.getname() << "\n";
+        }
+        else
+            std::cout << getname() << " couldn't sign " << form.getname() << " because grade too low\n";
+
+    }
     std::ostream &operator<<(std::ostream &os, Bureaucrat &obj)
-{
-    os << obj.getname();
-    os << " ";
-    os << obj.getgrade();
-    os << "\n";
-    return os;
-}
+    {
+        os << obj.getname();
+        os << " ";
+        os << obj.getgrade();
+        os << "\n";
+        return os;
+    }

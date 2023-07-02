@@ -1,27 +1,27 @@
-#include "Form.h"
+#include "AForm.h"
 #include "Bureaucrat.h"
 
-Form::Form()
+AForm::AForm()
 {
     m_name = "Can";
     m_signed = false;
     grade_exec = 100;
-    grade_sign = 300;
+    grade_sign = 101;
 }
-Form::Form(std::string name, bool _signed, int sign, int exec) : m_name(name) , m_signed(_signed)
+AForm::AForm(std::string name, bool _signed, int sign, int exec) : m_name(name) , m_signed(_signed)
 {
     setsign(sign);
     setexec(exec);
 }
-Form::Form(Form &cpy)
+AForm::AForm(AForm &cpy)
 {
     m_name = cpy.m_name;
     m_signed = cpy.m_signed;
     grade_sign = cpy.grade_sign;
     grade_exec = cpy.grade_exec;
 }
-Form::~Form(){}
-Form &Form::operator=(Form &cpy)
+AForm::~AForm(){}
+AForm &AForm::operator=(AForm &cpy)
 {
     if(this == &cpy)
         return *this;
@@ -31,11 +31,11 @@ Form &Form::operator=(Form &cpy)
     grade_exec = cpy.grade_exec;
     return *this;
 }
-void Form::setname(std::string name)
+void AForm::setname(std::string name)
 {
     m_name = name;
 }
-void Form::setsign(int sign)
+void AForm::setsign(int sign)
 {
     try
     {
@@ -55,7 +55,7 @@ void Form::setsign(int sign)
         std::cout << e.what() << "\n";
     }
 }
-void Form::setexec(int sign)
+void AForm::setexec(int sign)
 {
     try
     {
@@ -75,7 +75,7 @@ void Form::setexec(int sign)
         std::cout << e.what() << "\n";
     }
 }
-bool Form::beSigned(Bureaucrat &obj)
+bool AForm::beSigned(Bureaucrat &obj)
 {
     try
     {
@@ -95,7 +95,25 @@ bool Form::beSigned(Bureaucrat &obj)
     }
     return false;
 }
-std::string Form::getname(){return m_name;}
-bool Form::getsigned(){return m_signed;}
-int Form::getsign(){return grade_sign;}
-int Form::getexec(){return grade_exec;}
+bool AForm::beExecuted(Bureaucrat &obj)
+{
+    try
+    {
+        if(obj.getgrade() <= getexec() && getsigned())
+        {
+            return  m_executed = true;
+        }
+        else
+        {
+            throw GradeTooLowException();
+        }
+    }
+    catch(const std::exception& e)
+    {
+         std::cout << e.what() << "\n";
+    }
+}
+std::string AForm::getname(){return m_name;}
+bool AForm::getsigned(){return m_signed;}
+int AForm::getsign(){return grade_sign;}
+int AForm::getexec(){return grade_exec;}

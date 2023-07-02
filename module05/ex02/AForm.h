@@ -1,31 +1,34 @@
-#ifndef FORM_H
-# define FORM_H
+#ifndef AForm_H
+# define AForm_H
 
 #include <iostream>
 #include <exception>
 
-class Form
+class AForm
 {
     public:
    
-    Form();
-    Form(std::string name, bool _signed, int sign, int exec);
-    Form(Form &cpy);
-    ~Form();
-    Form &operator=(Form &cpy);
+    AForm();
+    AForm(std::string name, bool _signed, int sign, int exec);
+    AForm(AForm &cpy);
+    ~AForm();
+    AForm &operator=(AForm &cpy);
     void setname(std::string name);
     void setsign(int sign);
     void setexec(int sign);
     bool beSigned(class Bureaucrat &obj);
+    bool beExecuted(Bureaucrat &obj);
     std::string getname();
     bool getsigned();
     int getsign();
     int getexec();
+    virtual void execute(Bureaucrat const & executor) const = 0;
    
     private:
    
     std::string m_name;
     bool m_signed;
+    bool m_executed;
     int grade_sign;
     int grade_exec;
 

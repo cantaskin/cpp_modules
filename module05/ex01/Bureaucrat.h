@@ -26,14 +26,14 @@ class Bureaucrat
     {
         virtual const char* what() const throw()
         {
-            std::cout << "Too Low\n";
+            return "Too Low\n";
         }
     };
 
     class GradeTooHighException : public std::exception{
         virtual const char* what() const throw()
         {
-            std::cout << "Too High\n";
+            return "Too High\n";
         }
     };
     std::string m_name;
