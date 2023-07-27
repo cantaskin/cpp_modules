@@ -29,5 +29,7 @@
             std::cout << "Success!\n";
         }
         else
+        {
             std::cout << "Fail!\n";
+        }    
     }
