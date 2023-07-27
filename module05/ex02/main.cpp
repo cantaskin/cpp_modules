@@ -7,6 +7,7 @@ int main()
 {
     AForm* Form;
 
+    Bureaucrat B1;
     for(int i = 0; i < 10; i++)
     {
         if( i % 3 == 0)
@@ -15,5 +16,6 @@ int main()
             Form[i] = new RobotomyRequest;
         else
             Form[i] = new ShrubberyCreationForm;
+        Form[i]->execute(B1);
     }
 }
