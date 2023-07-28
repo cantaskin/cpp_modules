@@ -21,12 +21,10 @@
     
     ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-    void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+    void ShrubberyCreationForm::execute(Bureaucrat const &executor) const 
     {
-        
-        std::ofstream file;
-
-        file.open(m_target + "Shrubbery");
+        (void)executor;   
+        std::ofstream file((m_target + "Shrubbery").c_str());
 
         if(file.is_open())
         {

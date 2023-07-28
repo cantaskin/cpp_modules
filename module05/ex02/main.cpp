@@ -1,6 +1,6 @@
 #include "Bureaucrat.h"
 #include "PresidentialPardonForm.h"
-#include "RobotomyRequest.h"
+#include "RobotomyRequestForm.h"
 #include "ShrubberyCreationForm.h"
 
 int main()
@@ -29,6 +29,7 @@ int main()
         else
             H.signForm(*Form[i]);
     }
+    
     for(int i = 0; i< 10 ; i++)
     {
         if(i % 3 == 1)

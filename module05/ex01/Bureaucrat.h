@@ -40,4 +40,5 @@ class Bureaucrat
     int m_grade;
 };
     std::ostream &operator<<(std::ostream &os, Bureaucrat &obj);
+
 #endif

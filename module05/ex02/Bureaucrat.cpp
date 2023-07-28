@@ -80,6 +80,7 @@
             std::cout << getname() << " couldn't sign " << form.getname() << " because grade too low\n";
 
     }
+
     std::ostream &operator<<(std::ostream &os, Bureaucrat &obj)
     {
         os << obj.getname();
@@ -88,3 +89,4 @@
         os << "\n";
         return os;
     }
+

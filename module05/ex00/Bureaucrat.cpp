@@ -1,4 +1,4 @@
-#include "Bureacrat.h"
+#include "Bureaucrat.h"
 
    Bureaucrat::Bureaucrat(){
         m_name = "Can";

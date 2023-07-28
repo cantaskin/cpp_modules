@@ -11,7 +11,7 @@ class RobotomyRequest : public AForm
         RobotomyRequest(bool _signed, std::string target);
         RobotomyRequest &operator=(RobotomyRequest &Form);
         ~RobotomyRequest();
-        void execute(Bureaucrat const & executor) const;
+        void execute(Bureaucrat const & executor)const; 
     private:
         std::string m_target;
 };

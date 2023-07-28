@@ -23,16 +23,8 @@ class AForm
     bool getexecuted();
     int getsign();
     int getexec();
-    virtual void execute(Bureaucrat const & executor) const = 0;
+    virtual void execute(Bureaucrat const & executor) const  = 0;
    
-    private:
-   
-    std::string m_name;
-    bool m_signed;
-    bool m_executed;
-    int grade_sign;
-    int grade_exec;
-
      class GradeTooLowException: public std::exception
     {
         virtual const char* what() const throw()
@@ -47,10 +39,18 @@ class AForm
             return "Too High\n";
         }
     };
+    private:
+   
+    std::string m_name;
+    bool m_signed;
+    bool m_executed;
+    int grade_sign;
+    int grade_exec;
+
 };
 
 
 
 
-
 #endif
+

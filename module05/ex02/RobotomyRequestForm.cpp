@@ -1,5 +1,5 @@
     
-    #include "RobotomyRequest.h"
+    #include "RobotomyRequestForm.h"
     #include "Bureaucrat.h"
 
     RobotomyRequest::RobotomyRequest() : AForm("RobotomyRequest",false,72,45) , m_target("Can"){}
@@ -22,6 +22,7 @@
 
     void RobotomyRequest::execute(Bureaucrat const &executor) const
     {
+        (void)executor;
         int a = rand();
 
         if(a % 2)
@@ -30,4 +31,5 @@
         }
         else
             std::cout << "Fail!\n";
+        
     }

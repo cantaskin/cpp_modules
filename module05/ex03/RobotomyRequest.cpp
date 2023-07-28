@@ -22,6 +22,7 @@
 
     void RobotomyRequest::execute(Bureaucrat const &executor) const
     {
+        (void)executor;
         int a = rand();
 
         if(a % 2)
@@ -33,3 +34,4 @@
             std::cout << "Fail!\n";
         }    
     }
+

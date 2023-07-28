@@ -5,12 +5,12 @@
 #include <cstdlib>
 #include <climits>
 
-    enum class _type
+    enum _type
     {
         charType,
         intType,
         doubleType,
-        floatType,
+        floatType
     };
 class Converter
 {

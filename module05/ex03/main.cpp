@@ -8,7 +8,7 @@ int main()
 {
 	try{
 		Bureaucrat Bureau1("Canan",31);
-		Bureaucrat Bureau2();
+		Bureaucrat Bureau2;
 		Intern Intern1;
 		AForm* F1;
 

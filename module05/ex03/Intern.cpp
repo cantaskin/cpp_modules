@@ -13,6 +13,7 @@ Intern::Intern(const Intern &cpy)
 
 Intern Intern::operator=(Intern const &cpy)
 {
+    (void)cpy;
 	return(*this);
 }
 

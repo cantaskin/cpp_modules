@@ -8,15 +8,15 @@ Converter::Converter(const std::string &literal)
     if (literal.empty())
         throw InvalidConversionInputException();
     if (literal.size() == 1 && !isdigit(literal[0]))
-        Type = _type::charType;
+        Type = charType;
     else if (literal != "nan" && literal.find('f') == std::string::npos && literal.find('.') == std::string::npos)
-        Type = _type::intType;
+        Type = intType;
     else
     {
         if (literal[literal.length() - 1] == 'f' && literal != "+inf" && literal != "-inf" && literal != "inf")
-            Type = _type::floatType;
+            Type = floatType;
         else
-            Type = _type::doubleType;
+            Type = doubleType;
     }
 }
 
@@ -82,14 +82,14 @@ const char *Converter::InvalidConversionInputException::what() const throw()
 
 void Converter::convert(const std::string literal)
 {
-    if (Type == _type::charType)
+    if (Type == charType)
     {
         std::cout << "char  : " << literal << std::endl;
         std::cout << "int   : " << static_cast<int>(literal[0]) << std::endl;
         std::cout << "float : " << std::showpoint << static_cast<float>(literal[0]) << "f" << std::endl;
         std::cout << "double: " << std::showpoint << static_cast<double>(literal[0]) << std::endl;
     }
-    else if (Type == _type::intType)
+    else if (Type == intType)
     {
         std::cout << "char  : ";
         try
@@ -120,7 +120,7 @@ void Converter::convert(const std::string literal)
             std::cout << e.what() << std::endl;
         }
     }
-    else if (Type == _type::floatType)
+    else if (Type == floatType)
     {
         std::cout << "char  : ";
         try
@@ -151,7 +151,7 @@ void Converter::convert(const std::string literal)
             std::cout << e.what() << std::endl;
         }
     }
-    else if (Type == _type::doubleType)
+    else if (Type == doubleType)
     {
         std::cout << "char  : ";
         try

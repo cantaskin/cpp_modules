@@ -23,28 +23,26 @@
 
     void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
     {
-        
-        std::ofstream file;
-
-        file.open(m_target + "Shrubbery");
+        (void)executor;
+        std::ofstream file((m_target + "Shrubbery").c_str());
 
         if(file.is_open())
         {
             file << "              '.,         " << std::endl;
-        file << "        'b      *         " << std::endl;
-        file << "         '$    #.         " << std::endl;
-        file << "          $:   #:         " << std::endl;
-        file << "          *#  @):         " << std::endl;
-        file << "          :@,@):   ,.**:' " << std::endl;
-        file << ",         :@@*: ..**'     " << std::endl;
-        file << " '#o.    .:(@'.@*\"'       " << std::endl;
-        file << "    'bq,..:,@@*'   ,*     " << std::endl;
-        file << "    ,p$q8,:@)'  .p*'      " << std::endl;
-        file << "   '    '@@Pp@@*'         " << std::endl;
-        file << "         Y7'.'            " << std::endl;
-        file << "        :@):.             " << std::endl;
-        file << "       .:@:'.             " << std::endl;
-        file << "     .::(@:.              " << std::endl;
+            file << "        'b      *         " << std::endl;
+            file << "         '$    #.         " << std::endl;
+            file << "          $:   #:         " << std::endl;
+            file << "          *#  @):         " << std::endl;
+            file << "          :@,@):   ,.**:' " << std::endl;
+            file << ",         :@@*: ..**'     " << std::endl;
+            file << " '#o.    .:(@'.@*\"'       " << std::endl;
+            file << "    'bq,..:,@@*'   ,*     " << std::endl;
+            file << "    ,p$q8,:@)'  .p*'      " << std::endl;
+            file << "   '    '@@Pp@@*'         " << std::endl;
+            file << "         Y7'.'            " << std::endl;
+            file << "        :@):.             " << std::endl;
+            file << "       .:@:'.             " << std::endl;
+            file << "     .::(@:.              " << std::endl;
         }
         else
             std::cout << "File isn't opened!\n";
